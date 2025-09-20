@@ -11,7 +11,7 @@ body {
     margin: 0;
 }
 
-header, ul, #content-wrapper {
+header, nav ul, #content-wrapper {
     width: 90%;
     max-width: 1200px;
     margin-left: auto;
@@ -24,8 +24,8 @@ a {
 
 [id=logo] {
     position: absolute;
-    top:0px;
-    left:0px;
+    top: 0px;
+    left: 0px;
 }
 
 header {
@@ -33,48 +33,50 @@ header {
 }
 
 header h1, nav ul {
-    padding-left:50px;
+    padding-left: 50px;
 }
 
 nav {
     background-color: #008000;
 }
 
-li {
+nav li {
     list-style-type: none;
     display: inline-block;
 }
 
-ul a {
+nav ul a {
     display: inline-block;
     padding: 1rem;
-    font: bold;
+    font-weight: bold;
     text-decoration: none;
-    color:white;
+    color: white;
 }
 
-ul a:hover {
+nav ul a:hover {
     background-color: black;
     color: #9ae39a;
 }
 
 main article img {
     border: 3px double #333;
-    float:left;
+    float: left;
     margin: .5rem 1rem .5rem 0;
 }
 
 main section {
     display: flex;
+    flex-wrap: wrap;
 }
 
 main section div {
     background-color: #e7ffe7;
     border: 1px solid #008000;
-    border-radius:10px;
+    border-radius: 10px;
     margin-right: 1rem;
     flex: 1;
     text-align: center;
+    padding: 0 0 1rem 0;
 }
 
 #bam {
@@ -83,28 +85,32 @@ main section div {
 
 main section div h2 {
     background-color: #008000;
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 0 0;
     color: white;
     margin-top: 0;
+    padding: 0.5rem;
 }
 
 main section div img {
     border: 3px double #333;
-    display: black;
-    margin: auto;
+    display: block;
+    margin: 1rem auto;
+    max-width: 90%;
 }
 
 aside section {
     background-color: white;
     margin-bottom: 1rem;
     border: 1px solid #008000;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 aside h3 {
     background-color: #008000;
     color: white;
     padding: .5rem;
-    margin: 0 0 0 0;
+    margin: 0;
 }
 
 aside a {
@@ -114,6 +120,7 @@ aside a {
 
 #content-wrapper {
     display: flex;
+    margin-top: 1rem;
 }
 
 aside {
@@ -124,14 +131,37 @@ aside {
     padding: .5rem;
     position: relative;
     top: 20px;
-    flex: 1;
+    align-self: flex-start;
 }
 
 aside h2 {
-    margin-top:0;
+    margin-top: 0;
     white-space: nowrap;
 }
 
 #content-wrapper main {
-    order: 3;
+    order: 1;
+    flex: 2;
+}
+
+@media (max-width: 768px) {
+    main section {
+        flex-direction: column;
+    }
+    
+    main section div {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+    
+    #content-wrapper {
+        flex-direction: column;
+    }
+    
+    aside {
+        order: 3;
+        top: 0;
+        margin-right: 0;
+        margin-top: 1rem;
+    }
 }
